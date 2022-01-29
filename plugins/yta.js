@@ -1,7 +1,7 @@
 let limit = 30
 const { servers, yta } = require('../lib/y2mate')
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
-	m.reply('Sabar, cari server dulu')
+	m.reply('Proses')
   if (!args || !args[0]) throw 'Kirim linknya tuan'
   let chat = global.db.data.chats[m.chat]
   let server = (args[1] || servers[0]).toLowerCase()
@@ -33,7 +33,7 @@ handler.botAdmin = false
 
 handler.fail = null
 handler.exp = 0
-handler.limit = true
+handler.limit = false
 
 module.exports = handler
 
