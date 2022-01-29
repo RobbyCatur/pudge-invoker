@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 
-let timeout = 30000
+let timeout = 120000
 let poin = 500
 let handler = async (m, { conn, usedPrefix }) => {
   conn.tebakgambar = conn.tebakgambar ? conn.tebakgambar : {}
@@ -22,7 +22,7 @@ Bonus: ${poin} XP
     await conn.sendFile(m.chat, json.result.images, 'tebakgambar.jpg', caption, m, false, { thumbnail: Buffer.alloc(0) }),
     json, poin,
     setTimeout(() => {
-      if (conn.tebakgambar[id]) conn.sendButton(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.jawaban}*`, /*conn.tebakgambar[id][0]*/ '© Robby Catur', 'LANJUT', '.tebakgambar')
+      if (conn.tebakgambar[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.result.jawaban}*`, conn.tebakgambar[id][0])
       delete conn.tebakgambar[id]
     }, timeout)
   ]
