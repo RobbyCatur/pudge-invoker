@@ -3,6 +3,7 @@ let yts = require('yt-search')
 let fetch = require('node-fetch')
 const { servers, yta, ytv } = require('../lib/y2mate')
 let handler = async (m, { conn, command, text, isPrems, isOwner }) => {
+  m.reply('Proses')
   if (!text) throw 'Cari apa?'
   let chat = global.db.data.chats[m.chat]
   let results = await yts(text)
